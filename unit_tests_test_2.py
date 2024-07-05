@@ -1,8 +1,9 @@
-import pytest
+"""Unit tests for second test"""
 from test_2 import *
 from test_2_mock_data import *
 
 def test_import_csv(mock_people):
+    """check import people from csv works"""
     result = csv_to_dict("mock_people.csv")
     expected = mock_people
 
@@ -14,27 +15,29 @@ def test_get_correct_court(mock_people, mock_courts, mock_closest_courts):
     tests"""
 
 
-    people = mock_people
+    local_mock_people = mock_people
     expected = mock_closest_courts
 
-    court_matches = []
+    mock_court_matches = []
 
-    for person in people:
+    for mock_person in local_mock_people:
 
-        local_courts = mock_courts
+        mock_local_courts = mock_courts
 
-        correct_courts = [court for court in local_courts\
-                          if check_court_type(person, court)]
+        mock_correct_courts = [court for court in mock_local_courts\
+                          if check_court_type(mock_person, court)]
 
 
-        correct_courts = [filter_court_data(court) for court in correct_courts]
+        mock_correct_courts = [filter_court_data(court) for court in mock_correct_courts]
 
-        correct_court = sort_courts(correct_courts)[0]
-        correct_court['persons name'] = person["person_name"]
-        correct_court['desired court type'] = person["looking_for_court_type"]
+        mock_correct_court = sort_courts(mock_correct_courts)[0]
+        mock_correct_court['persons name'] =\
+            mock_person["person_name"]
+        mock_correct_court['desired court type'] =\
+            mock_person["looking_for_court_type"]
 
-        court_matches.append(correct_court)
+        mock_court_matches.append(mock_correct_court)
 
-    result = court_matches
+    result = mock_court_matches
     assert expected == result
 

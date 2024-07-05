@@ -1,5 +1,5 @@
+"""Mock data for unit tests testing second assessment task"""
 import pytest
-
 
 @pytest.fixture
 def mock_courts():
