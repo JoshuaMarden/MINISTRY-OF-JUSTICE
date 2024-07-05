@@ -40,4 +40,3 @@ def test_get_correct_court(mock_people, mock_courts, mock_closest_courts):
 
     result = mock_court_matches
     assert expected == result
-

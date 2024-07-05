@@ -1,5 +1,4 @@
 """test 1"""
-from datetime import datetime
 
 # [TODO]: step 1
 # Update the is_log_line function below to skip lines that are not valid log lines.
